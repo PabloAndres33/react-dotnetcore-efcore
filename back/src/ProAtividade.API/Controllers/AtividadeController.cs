@@ -33,11 +33,11 @@ namespace ProAtividade.API.Controllers
         }
 
         [HttpPost]
-        public IEnumerable<Atividade> Post(Atividade atividade)
+        public Atividade Post(Atividade atividade)
         {
             this.context.Atividades.Add(atividade);
             if(this.context.SaveChanges() > 0)
-                return this.context.Atividades;
+                return this.context.Atividades.FirstOrDefault(ati => ati.Id == atividade.Id);
             else
                 throw new Exception("Você não conseguiu adicionar uma atividade");
         }
