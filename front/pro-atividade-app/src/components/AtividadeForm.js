@@ -17,7 +17,6 @@ export default function AtividadeForm(props) {
 
     const inputTextHandler = (e) => {
         const {name, value} = e.target;
-        console.log(value)
         setAtividade({...atividade, [name]: value})
     }
 
